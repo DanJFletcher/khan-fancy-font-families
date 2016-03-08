@@ -54,7 +54,7 @@ staticTest($._("Change the font families"), function() {
         } else if (!cssMatches(familiesP, familiesValidC)) {
             result = fail(familyValidM);
         } else if (!cssMatches(familiesP, familiesDiffC)) {
-            result = fail($._("Are you using different font families for each of the families?"))
+            result = fail($._("Are you using different font families for each of the `font-family` properties?"))
         }
     }
     
