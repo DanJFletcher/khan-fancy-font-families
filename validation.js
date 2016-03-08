@@ -27,7 +27,7 @@ var twoFamiliesM = $._("Are you specifying two families for a property? For this
 
 staticTest($._("Change the font families"), function() {
     var result = null;
-    var descrip = $._("This webpage displays the theme songs from a few famous TV families. Each of the lyrics paragraphs have `*id*`'s, but the CSS rules for them have no properties yet. Add a `*font-family*` property to each of the CSS rules, using a _generic family name_ that works for all computers. Choose a different font family for each rule.\n\nHere's a list of generic font families; sans-serif, serif, fantasy, monospace, and cursive.");
+    var descrip = $._("This webpage displays the theme songs from a few famous TV families. Each of the lyrics paragraphs have `*id*`'s, but the CSS rules for them have no properties. Add a different `*font-family*` for each of the CSS rules, using a generic family name that works for all computers.");
     
     var displayP = "";
     
