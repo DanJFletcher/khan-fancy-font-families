@@ -1,11 +1,7 @@
 var familyNames = ["sans-serif", "serif", "fantasy", "monospace", "cursive"];
 var isValidFamily = function(family) {
-    for (var i = 0; i < familyNames.length; i++) {
-        if (family.toLowerCase() === familyNames[i].toLowerCase()) {
-            return true;
-        }
-    }
-    return false;
+    var family = family.toLowerCase();
+    return familyNames.indexOf(family) > -1;
 };
 
 var isQuotedFamily = function(family) {
@@ -55,9 +51,9 @@ staticTest($._("Change the font families"), function() {
             result = fail(twoFamiliesM)
         } else if (passes(cssMatch(familiesP, quotedFamiliesC))) {
             result = fail($._("When using generic family names, you shouldn't surround them in quotes."));
-        } else if (!passes(cssMatch(familiesP, familiesValidC))) {
+        } else if (!cssMatches(familiesP, familiesValidC)) {
             result = fail(familyValidM);
-        } else if (!passes(cssMatch(familiesP, familiesDiffC))) {
+        } else if (!cssMatches(familiesP, familiesDiffC)) {
             result = fail($._("Are you using different font families for each of the families?"))
         }
     }
