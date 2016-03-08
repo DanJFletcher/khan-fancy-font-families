@@ -71,7 +71,7 @@ staticTest($._("Change the font families"), function() {
 staticTest($._("Change the base font family"), function() {
     var result = null;
     var descrip = $._("Rember how to use element selectors from _CSS Basics_? Use the `*body*` selector to make a new CSS rule that changes the `*font-family*` of the entire page.");
-    var displayP = "";
+    var displayP = "body {\n  _: _;\n}";
     
     var bodyFamilyP = "body { font-family: $ff}";
     
