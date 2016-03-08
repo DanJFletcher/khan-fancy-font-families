@@ -1,4 +1,7 @@
+// add common misspellings of font-families here
+var misspellings = ["sans-sarif", "sarif", "fanatasy", "monspace", "cursave"];
 var familyNames = ["sans-serif", "serif", "fantasy", "monospace", "cursive"];
+
 var isValidFamily = function(family) {
     var family = family.toLowerCase();
     return familyNames.indexOf(family) > -1;
@@ -17,6 +20,10 @@ var familyValidM = $._("Are you using a generic family name that will work in al
 var isTwoFamilies = function(family) {
     return family.indexOf(",") > -1;
 };
+
+var isMisspelled = function(family) {
+    return misspellings.indexOf(family) > -1;
+}
 
 var twoFamiliesM = $._("Are you specifying two families for a property? For this challenge, only specify one family per font-family property.");
 
@@ -43,12 +50,18 @@ staticTest($._("Change the font families"), function() {
     var familiesDiffC = function($ff1, $ff2, $ff3) {
         return $ff1 !== $ff2 && $ff1 !== $ff3;
     };
+
+    var familiesMisspelledC = function($ff1, $ff2, $ff3) {
+        return isMisspelled($ff1) || isMisspelled($ff2) || isMisspelled($ff3); 
+    }
     
     result = cssMatch(familiesP);
     
     if (passes(result)) {
         if (passes(cssMatch(familiesP, twoFamiliesC))) {
             result = fail(twoFamiliesM)
+        }  else if (cssMatches(familiesP, familiesMisspelledC)) {
+            result = fail($._("It looks like you're spelling one of your family names wrong. Check your spelling."));
         } else if (passes(cssMatch(familiesP, quotedFamiliesC))) {
             result = fail($._("When using generic family names, you shouldn't surround them in quotes."));
         } else if (!cssMatches(familiesP, familiesValidC)) {
