@@ -5,6 +5,9 @@
     code: "<style>#flinstones{font-family:fantasy;} #jetsons{font-family:Monospace} #addams{font-family:Cursive}</style><p id='flinstones'></p><p id='jetsons'></p><p id='addams'></p>",
     steps: ["pass"]
 }, {
+    code: "<style>#flinstones{font-family:fanatasy;} #jetsons{font-family:Monospace} #addams{font-family:Cursive}</style><p id='flinstones'></p><p id='jetsons'></p><p id='addams'></p>",
+    steps: ["It looks like you're spelling one of your family names wrong. Check your spelling."]
+}, {
     code: "<style>#flinstones{font-family:\"fantasy\";} #jetsons{font-family:\"monospace\"} #addams{font-family:\"cursive\"}</style><p id='flinstones'></p><p id='jetsons'></p><p id='addams'></p>",
     steps: ["When using generic family names, you shouldn't surround them in quotes."]
 }, {
